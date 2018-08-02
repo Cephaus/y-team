@@ -193,6 +193,7 @@ a.text-primary:active, a.text-primary:focus, a.text-primary:hover {
 
 .navbar {
   margin-bottom: 20px;
+  padding: 0.625rem 3rem;
 }
 
 .nav-item {
@@ -203,10 +204,6 @@ a.text-primary:active, a.text-primary:focus, a.text-primary:hover {
   width: 80px;
 }
 
-.undernav {
-  background-color: #2098EB;
-  height: 150px;
-}
 //I know this might slow things down but I need it...
 
 .simple-space {
@@ -324,4 +321,8 @@ a.text-primary:active, a.text-primary:focus, a.text-primary:hover {
 
 .link_to {
   color: var(--info-dark);
+}
+
+.dropdown-toggle::after {
+  display: none;
 }

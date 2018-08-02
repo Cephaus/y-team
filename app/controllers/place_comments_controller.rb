@@ -1,4 +1,6 @@
 class PlaceCommentsController < ApplicationController
+  before_action :require_user, only: [:new,:create]
+
   def index
     @place_comments = PlaceComment.all
   end
@@ -14,17 +16,14 @@ class PlaceCommentsController < ApplicationController
 
     # hardcoded ouch EH
     @place_comment.rating = 5
-
     @place_comment.flagged = 0
     @place_comment.enabled = 1
     @place_comment.save!
-
-    # flash[:success] = @place_comment.title + " has been added"
     redirect_to place_path(:id => @place_comment.place_id)
   end
 
   private
-  def user_params
-    params.require(:place_comment).permit(:title, :text, :rating)
-  end
+    def user_params
+      params.require(:place_comment).permit(:title, :text, :rating)
+    end
 end

@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :require_user, only: [:show]
+  before_action :require_user, only: [:new]
   #list all places
   def index
     @places = Place.all
@@ -27,9 +27,8 @@ class PlacesController < ApplicationController
     @users = User.all
   end
 
-  #creates new place. no error checking yet.
   private
-  def place_params
-    params.require(:place).permit(:name, :lat, :lng, :image_uri, :description, :cat_id, :address)
-  end
+    def place_params
+      params.require(:place).permit(:name, :lat, :lng, :image_uri, :description, :cat_id, :address)
+    end
 end

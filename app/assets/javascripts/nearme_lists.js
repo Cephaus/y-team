@@ -8,7 +8,6 @@ $(document).ready(function(){
     }
 
     function showPosition2(position){
-      alert(position.coords.latitude);
       $('#hidden-lat').val(position.coords.latitude);
       $("#hidden-lng").val(position.coords.longitude);
     }

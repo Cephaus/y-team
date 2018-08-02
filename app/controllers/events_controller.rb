@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :require_user, only: [:new, :create]
+  before_action :require_user, only: [:new]
 
   #list all events
   def index
@@ -31,10 +31,8 @@ class EventsController < ApplicationController
     @users = User.all
   end
 
-  #create new event from parameters
   private
-  def event_params
-    params.require(:event).permit(:name, :place_id, :description, :start_time, :end_time, :cat_id)
-  end
-
+    def event_params
+      params.require(:event).permit(:name, :place_id, :description, :start_time, :end_time, :cat_id)
+    end
 end
