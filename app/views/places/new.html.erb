@@ -9,9 +9,9 @@
           <%= form.select :cat_id, options_from_collection_for_select(@categories, 'id', 'name', '1'), {}, {class: 'form-control', required: true } %>
         </div>
 
-
-        <%= form.select :googlename ,{}, {class: 'form-control', required: true } %>
-
+        <div class="input-group mb-3">
+          <%= form.select :googlename , {} , { prompt: 'Select After Entering Name' } , { class: 'form-control' } %>
+        </div>
 
         <div class="input-group mb-3">
           <%= form.text_field :address, class: 'form-control', placeholder: "Address", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>

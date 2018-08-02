@@ -9,7 +9,7 @@ $(document).ready(function(){
       var exact_name1 = response.results[0].name;
       var exact_name2 = response.results[1].name;
       var exact_name3 = response.results[2].name;
-      alert(response.results.length)
+      // alert(response.results.length)
 
       for(var i=0; i<response.results.length; i++){
 
