@@ -2,7 +2,7 @@
 <html>
   <body>
     <head>
-      <title>GNV-Explorer</title>
+      <title>GNV-Xplorer</title>
       <meta content="initial-scale=1, width=device-width" name="viewport">
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
@@ -70,7 +70,7 @@
             <% if current_user %>
               <li class="nav-item">
                 <%= link_to current_user.uname, profiles_path, { :class=>"nav-link"} %>
-                
+
               </li>
             <% else %>
               <li class="nav-item">

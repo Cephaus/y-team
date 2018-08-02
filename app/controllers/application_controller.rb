@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     redirect_to sessions_path unless current_user
   end
 
+  def show
+    @profiles = Profile.all
+    @users = User.all
+  end
+
 end
