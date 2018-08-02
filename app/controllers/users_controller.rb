@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   
     # Create a profile for user
     profile = Profile.new
+    profile.image_uri = "https://i.stack.imgur.com/dr5qp.jpg"
     profile.user_id = @user.id
     profile.save
     
