@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find_by(user_id:(session[:user_id]))
     if @profile.update_attributes(profile_params)
-      flash[:success] = "Profile Updated"
+      # flash[:success] = "Profile Updated"
     else
       flash[:notice] = "Error Updating"
       render 'update'

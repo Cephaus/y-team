@@ -31,6 +31,7 @@
               <h4 class="card-title">
                 <strong><%= @event.name %> @ <%= Place.find(@event.place_id).name %> </strong> - <%= @category.name %>
               </h4>
+              <h6 class="text-right">Added by <%=User.find(@event.user_id).uname %></h6>
               <hr>
               <p class="card-text">
                 <%= @event.description %>

@@ -7,9 +7,9 @@
         <ul class="list-unstyled">
           <% @places.each do |place| %>
             <li class="media">
-              <a href="<%=place_path(place)%>"><img class="mr-3" src="<%= place.image_uri %>" alt="<%= place.name %>"></a>
+              <a href="<%=place_path(place)%>"><img class="mr-3 rounded" src="<%= place.image_uri %>" alt="<%= place.name %>"></a>
               <div class="media-body">
-                <h5 class="mt-0 mb-1 text-left"><%= link_to place.name, place_path(place) %></h5>
+                <h5 class="mt-0 mb-1 text-left"><%= link_to place.name, place_path(place) %> - <%=place.address%> </h5>
                 <p class="text-left"><%=place.description%></p>
               </div>
             </li>

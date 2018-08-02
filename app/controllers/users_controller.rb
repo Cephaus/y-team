@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     profile.user_id = @user.id
     profile.save
     
-    flash[:success] = "Welcome to GNV Xplorer"
+    # flash[:success] = "Welcome to GNV Xplorer"
     redirect_to new_place_path
   end
   
