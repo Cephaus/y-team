@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module YTeam
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    # config.active_job.queue_adapter = :sidekiq
     config.load_defaults 5.2
     config.time_zone = 'Eastern Time (US & Canada)'
     # Settings in config/environments/* take precedence over those specified here.
@@ -16,4 +17,7 @@ module YTeam
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+#   config.action_mailer.delivery_method = :sendmail
+# config.action_mailer.perform_deliveries = true
+# config.action_mailer.raise_delivery_errors = true
 end

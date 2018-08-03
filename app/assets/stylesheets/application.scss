@@ -372,6 +372,13 @@ a.text-primary:hover {
   display: none;
 }
 
+img {
+max-width: 100%;
+}
+.media img {
+    max-width: 200px;
+}
+
 .img-circle {
   border-radius: 50%;
 }

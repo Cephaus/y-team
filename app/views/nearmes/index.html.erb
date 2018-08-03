@@ -11,10 +11,10 @@
         <div class="col-md-12 mb-3">
           <center>
             <%= form_tag nearmelists_path, method: :get do %>
-            <%=hidden_field_tag :lat, '1', id: 'hidden-lat' %>
-            <%=hidden_field_tag :lng, '1', id: 'hidden-lng' %>
-            <%=submit_tag 'Check out nearby restaurants, convenience stores, and bars', id: 'try-it' %>
-          <% end%>
+              <%=hidden_field_tag :lat, '1', id: 'hidden-lat' %>
+              <%=hidden_field_tag :lng, '1', id: 'hidden-lng' %>
+              <button id='try-it' type="submit" href="nearmelists" class="btn btn-info">Check out nearby restaurants, convenience stores, and bars</button>
+            <% end%>
         </center>
       </div>
     </div>

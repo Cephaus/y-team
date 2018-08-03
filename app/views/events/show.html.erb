@@ -29,40 +29,63 @@
           <div class="col-md-6 mb-3">
             <div class="card-body">
               <h4 class="card-title">
-                <strong><%= @event.name %> @ <%= Place.find(@event.place_id).name %> </strong> - <%= @category.name %>
+                <strong>
+                  <%= @event.name %> @
+                    <%= Place.find(@event.place_id).name %>
+                </strong> -
+                <%= @category.name %>
+
               </h4>
-              <h6 class="text-right">Added by <%=User.find(@event.user_id).uname %></h6>
+              <h6 class="text-right">Added by
+                <%=User.find(@event.user_id).uname %>
+              </h6>
               <hr>
               <p class="card-text">
                 <%= @event.description %>
               </p>
               <br>
-              <h6 class="card-subtitle mb-0 text-muted">Start Time</h6>
-              <p class="card-text">
-                <%=@event.start_time.strftime("%B %e, %Y at %I:%M %p") %>
-              </p>
-              <h6 class="card-subtitle mb-0 text-muted">End Time</h6>
-              <p class="card-text">
-                <%=@event.end_time.strftime("%B %e, %Y at %I:%M %p") %>
-              </p>
+              <div class="d-flex bd-highlight">
+                <div class="p-2 flex-fill bd-highlight">
+                <h6 class="card-subtitle mb-0 text-muted">Start Time</h6>
+                <p class="card-text">
+                  <%=@event.start_time.strftime("%B %e, %Y at %I:%M %p") %>
+                </p>
+                <h6 class="card-subtitle mb-0 text-muted">End Time</h6>
+                <p class="card-text">
+                  <%=@event.end_time.strftime("%B %e, %Y at %I:%M %p") %>
+                </p>
+                </div>
+                <div class="p-2 flex-fill bd-highlight">
+                  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mailerModal">
+                    Set a reminder
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <div class="card-body">
-              <h4 class="card-title"><strong>Comments</strong></h4>
+              <h4 class="card-title">
+                <strong>Comments</strong>
+              </h4>
               <hr>
               <% @event_comments.select{|e| e.event_id == @event.id}.each do |ec| %>
-              <div class="media">
-                <img class="align-self-start mr-3 img-circle img-fluid comment" src="<%= @profiles.find_by(user_id: ec.user_id).image_uri %>" alt="<%= @users.find_by(id:ec.user_id) %>">
-                <div class="media-body">
-                  <h5 class="mt-0 lead"><%= ec.title %></h5>
-                  <p><%= ec.text %></p>
+                <div class="media">
+                  <img class="align-self-start mr-3 img-circle img-fluid comment" src="<%= @profiles.find_by(user_id: ec.user_id).image_uri %>"
+                    alt="<%= @users.find_by(id:ec.user_id) %>">
+                  <div class="media-body">
+                    <h5 class="mt-0 lead">
+                      <%= ec.title %>
+                    </h5>
+                    <p>
+                      <%= ec.text %>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <% end %>
-              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#commentModal">
-                Add a Comment
-              </button>
+                <% end %>
+                  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#commentModal">
+                    Add a Comment
+                  </button>
             </div>
           </div>
         </div>
@@ -95,6 +118,28 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <%= form.submit :submit, class:"btn btn-secondary" %>
           <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mailer -->
+<div class="modal fade" id="mailerModal" tabindex="-1" role="dialog" aria-labelledby="mailerModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commentModalTitle">Get a Reminder</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_tag '/user_mailers' do %>
+        <p>By clicking submit, you will receive a reminder approximately one hour before <%= @event.name %> begins.</p>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= submit_tag nil, class: 'btn btn-secondary' %>
+        <% end %>
       </div>
     </div>
   </div>

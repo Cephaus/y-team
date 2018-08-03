@@ -11,17 +11,22 @@ class UsersController < ApplicationController
     @user.role = 0
     @user.enabled = 1
     @user.save
-  
+
     # Create a profile for user
     profile = Profile.new
     profile.image_uri = "https://i.stack.imgur.com/dr5qp.jpg"
     profile.user_id = @user.id
     profile.save
+
+    # UserMailer.welcome_email(@user).deliver_later(wait: 2.minutes)
+    # redirect_to(@user, :notice => 'User created')
     
-    # flash[:success] = "Welcome to GNV Xplorer"
+    flash[:success] = "Welcome to GNV Xplorer"
+    # UserMailer.welcome_email(@user).deliver
     redirect_to new_place_path
+
   end
-  
+
   def show
     before_action :require_user, only: [:show]
     @user = User.find(params[:id])

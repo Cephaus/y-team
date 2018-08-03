@@ -11,6 +11,7 @@
       <%= favicon_link_tag asset_path('y.png'), :rel => 'icon', :type =>  'image/png' %>
 
     </head>
+  <div class="sticky-top">
     <header>
       <nav class="navbar navbar-expand-md bg-info sticky-top">
         <%=link_to image_tag("GNV_new.png"), root_path, { :class=>"navbar-brand" } %>
@@ -79,6 +80,7 @@
           </ul>
         </div>
       </nav>
+    </div>
     </header>
 
     <% flash.each do |type, message| %>
