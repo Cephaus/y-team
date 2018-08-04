@@ -1,18 +1,49 @@
 
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+body {
+}
+a{
+    color: white;
+
+}
+h1 {
+    font-family: Roboto;
+    color: white;
+    text-align: center;
+        background-color: #2196f3;
+
+}
+
+p {
+    font-family: Roboto;
+    font-size: 20px;
+
+}
+.bg{
+        background-color: #2196f3;
+            color: white;
+                text-align: center;
+
+
+
+}
+
+</style>
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.uname %></h1>
+    <h1>Welcome to GNV-Xplorer, <%= @user.uname %></h1>
     <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @user.uname %>.<br>
+      This is GNV-Xplorer just reminding you that your event starts in an hour.<br>
     </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Thank you, have a great day!</p>
+    <p class="bg"><%= @url %> - <a href="https://github.com/hosforddotme/y-team" target="_blank">Y Team</a></p>
+   <div>
+
+   </div>
   </body>
 </html>

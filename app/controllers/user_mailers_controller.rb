@@ -7,6 +7,7 @@ def create
     @event = Event.find(params[:event_id])
 
     puts @event.start_time
+    
     time_until = @event.start_time-Time.now-3600
     puts time_until
     UserMailer.welcome_email(@user).deliver_later(wait: time_until.seconds)
