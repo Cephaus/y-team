@@ -135,6 +135,7 @@
       </div>
       <div class="modal-body">
         <%= form_tag '/user_mailers' do %>
+        <%= hidden_field_tag :event_id, @event.id %>
         <p>By clicking submit, you will receive a reminder approximately one hour before <%= @event.name %> begins.</p>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
